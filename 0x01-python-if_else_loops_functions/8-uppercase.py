@@ -3,7 +3,10 @@ def uppercase(str):
     newStr = ""
     for char in str:
         if ord(char) >= 97 and ord(char) <= 122:
-            newStr += chr(ord(char) + 32)
+            newStr += chr(ord(char) - 32)
         else:
             newStr += char
     return newStr
+
+
+print(uppercase("mJ3eeb"))
