@@ -11,4 +11,3 @@ def fizzbuzz():
         else:
             print(count, end=" ")
         count += 1
-fizzbuzz()
