@@ -7,6 +7,3 @@ def uppercase(str):
         else:
             newStr += char
     return newStr
-
-
-print(uppercase("mJ3eeb"))
