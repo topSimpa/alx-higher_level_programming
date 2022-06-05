@@ -5,4 +5,5 @@ def no_c(my_string):
         for char in my_string:
             if char != 'c' and char != 'C':
                 withoutc += char
-    return withoutc
+       return withoutc
+    return my_string
