@@ -24,7 +24,7 @@ int check_cycle(listint_t *list)
 			if (node == match)
 				return (1);
 			match = match->next;
-		} while(++count < out);
+		} while (++count < out);
 	}
 	return (0);
 }
