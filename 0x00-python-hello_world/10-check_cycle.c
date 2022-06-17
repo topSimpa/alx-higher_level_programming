@@ -12,18 +12,19 @@
 int check_cycle(listint_t *list)
 {
 	listint_t *node, *match;
+	int count, out = 0;
 
-	match = list;
-	while(match)
+	node = list;
+	while (node)
 	{
-		node = match;
-		while (node)
-		{
-			node = node->next;
+		match = list;
+		node = node->next;
+		out++, count = 0;
+		do {
 			if (node == match)
 				return (1);
-		}
-		match = match->next;
+			match = match->next;
+		} while(++count < out);
 	}
 	return (0);
 }
