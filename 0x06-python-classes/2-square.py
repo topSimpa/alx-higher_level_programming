@@ -10,7 +10,7 @@ class Square:
     using the init function, condition to set size
     """
     def __init__(self, size=0):
-        if type(size) == "int":
+        if type(size) == int:
             self.__size = size
         elif size < 0:
             try:
