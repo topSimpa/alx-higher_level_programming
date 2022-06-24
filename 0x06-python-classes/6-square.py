@@ -17,8 +17,9 @@ class Square:
     """This class initializes an attribute size on each instance
     using the init function, condition to set size
     """
-    def __init__(self, size=0):
+    def __init__(self, size=0, position=(0, 0)):
         self.size = size
+        self.position = position
 
     @property
     def size(self):
@@ -35,6 +36,18 @@ class Square:
         else:
             self.__size = value
 
+    @property
+    def position(self):
+        """ This returns the positon property """
+        return self.__position
+
+    @position.setter
+    def position(self, val):
+        if type(val) != tuple and type(val[0]) != int and type(val[1]) != int:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        else:
+            self.__position = val
+
     def area(self):
         """Area calculate the area of the square"""
         return (self.__size * self.__size)
@@ -42,8 +55,10 @@ class Square:
     def my_print(self):
         """  This method prints the square object as hashes
         0 size means no square (empty)"""
+        [print("") for i in range(self.__position[1])]
         if self.__size != 0:
             for line in range(self.__size):
+                print(" " * (self.__position)[0], end="")
                 print("#" * self.__size)
         else:
             print("")
