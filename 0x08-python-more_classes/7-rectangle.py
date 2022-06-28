@@ -56,7 +56,7 @@ class Rectangle:
         if self.width != 0 and self.height != 0:
             s = ''
             for line in range(self.height):
-                s += (self.print_symbol * self.width)
+                s += (str(self.print_symbol) * self.width)
                 if line != self.height - 1:
                     s += "\n"
             return s
