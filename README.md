@@ -1,1 +1,1 @@
-Everything is an Object
+Python start here
