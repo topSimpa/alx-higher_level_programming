@@ -7,4 +7,3 @@ def read_file(filename=""):
     with open(filename, "rt", encoding="utf-8") as f:
         text = f.read()
     print(text)
-    f.close()
