@@ -7,5 +7,6 @@ def read_file(filename=""):
     if filename:
         with open(filename, "r", encoding="utf-8") as f:
             text = f.read().strip("\n")
-        if text:
-            print(text)
+            while (text):
+                print(text)
+                text = f.read().strip("\n")
