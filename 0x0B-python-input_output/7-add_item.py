@@ -9,11 +9,10 @@ save = __import__('5-save_to_json_file').save_to_json_file
 if len(sys.argv) > 1:
     if exists("add_item.json"):
         arr = load_from_json_file("add_item.json")
+    else:
+        arr = []
     for i in (sys.argv[1:]):
-        if type(arr) == list:
-            arr.append(i)
-        else:
-            arr = []
+        arr.append(i)
     save(arr, "add_item.json")
 elif not exists("add_item.json"):
     save([], "add_item.json")
