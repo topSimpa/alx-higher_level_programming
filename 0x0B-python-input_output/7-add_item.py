@@ -7,12 +7,13 @@ save = __import__('5-save_to_json_file').save_to_json_file
 
 
 if len(sys.argv) > 1:
-    arr = load_from_json_file("add_item.json")
+    if exists("add_item.json"):
+        arr = load_from_json_file("add_item.json")
     for i in (sys.argv[1:]):
         if type(arr) == list:
             arr.append(i)
         else:
             arr = []
     save(arr, "add_item.json")
-elif exists("add_item.json") == False:
+elif not exists("add_item.json"):
     save([], "add_item.json")
