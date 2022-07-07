@@ -5,4 +5,4 @@ import json as js
 
 def from_json_string(my_obj):
     """ changes json to python obj"""
-    return (js.load(my_obj))
+    return (js.loads(my_obj))
