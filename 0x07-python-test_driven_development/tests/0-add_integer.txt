@@ -30,3 +30,13 @@ TypeError: a must be an integer
 
 >>> adds(2, )
 100
+
+>>> adds(float('inf'), 2)
+Traceback (most recent call last):
+    ...
+OverflowError: cannot convert float infinity to integer
+
+>>> adds(float('NaN'), 3)
+Traceback (most recent call last):
+    ...
+ValueError: cannot convert float NaN to integer
