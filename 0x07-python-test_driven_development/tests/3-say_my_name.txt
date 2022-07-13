@@ -29,3 +29,8 @@ My name is 3
 Traceback (most recent call last):
     ...
 TypeError: first_name must be a string
+
+>>> say_name()
+Traceback (most recent call last):
+    ...
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
