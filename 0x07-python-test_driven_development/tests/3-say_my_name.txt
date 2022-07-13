@@ -1,0 +1,31 @@
+The ``say_my_name`` module
+======================
+
+Using ``say_my_name``
+-------------------
+
+This is an example text file in reStructuredText format.  First import
+``say_my_name`` from the ``say_my_name`` module:
+
+>>> say_name = __import__('3-say_my_name').say_my_name
+
+>>> say_name("M", "Boy")
+My name is M Boy
+
+>>> say_name("M", 3)
+Traceback (most recent call last):
+    ...
+TypeError: last_name must be a string
+
+>>> say_name(3, "boy")
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
+
+>>> say_name("3", )
+My name is 3 
+
+>>> say_name(["M", "Boy"])
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
