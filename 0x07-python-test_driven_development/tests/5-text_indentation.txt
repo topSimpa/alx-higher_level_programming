@@ -36,3 +36,16 @@ TypeError: text_indentation() missing 1 required positional argument: 'text'
 
 >>> tid("me.")
 me.
+
+>>> tid("Holberton school")
+Holberton school
+
+>>> tid("Junction.Me")
+Junction.
+<BLANKLINE>
+Me
+
+>>> tid("Junction.  here")
+Junction.
+<BLANKLINE>
+here
