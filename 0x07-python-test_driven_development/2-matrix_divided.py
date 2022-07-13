@@ -18,9 +18,11 @@ def matrix_divided(matrix, div):
                 elif sum(j) < len(matrix) * len(matrix[0]):
                     raise TypeError("matrix must be a matrix \
 (list of lists) of integers/floats")
-                else:
+                elif type(div) in [int, float]:
                     r = map(lambda x: [round(i / div, 2) for i in x], matrix)
                     return list(r)
+                else:
+                    raise TypeError("div must be a number")
             elif type(div) in [int, float] and div != 0:
                 return list(map(lambda x: round(x / div, 2), matrix))
             elif div == 0:
