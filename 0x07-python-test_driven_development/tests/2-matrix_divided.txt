@@ -1,0 +1,54 @@
+The ``2-matrix_divided`` module
+======================
+
+Using ``matrix_divided``
+-------------------
+
+This is an example text file in reStructuredText format.  First import
+``matrix_divided`` from the ``example`` module:
+
+>>> matd = __import__('2-matrix_divided').matrix_divided
+
+>>> matd([2, 4, 6], 2)
+[1.0, 2.0, 3.0]
+
+>>> matd([1, 3, 5], 2)
+[0.5, 1.5, 2.5]
+
+>>> matd([1, "3", 5], 2)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matd((2, 3, 1), 1)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matd([], 2)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matd([1, 2, 3], 0)
+Traceback (most recent call last):
+    ...
+ZeroDivisionError: division by zero
+
+>>> matd([[1, 2], [2], [3, 4]], 2)
+Traceback (most recent call last):
+    ...
+TypeError: Each row of the matrix must have the same size
+
+>>> matd()
+Traceback (most recent call last):
+    ...
+TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
+
+>>> matd([1, 2, 4], )
+Traceback (most recent call last):
+    ...
+TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+>>> matd([1, 2, 5], 3)
+[0.33, 0.67, 1.67]
