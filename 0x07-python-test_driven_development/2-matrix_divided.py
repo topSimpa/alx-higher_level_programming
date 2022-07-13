@@ -9,15 +9,15 @@ def matrix_divided(matrix, div):
         if r == len(matrix):
             if sum([1 for i in matrix if type(i) is list]) == len(matrix):
                 r = sum([1 for i in matrix if len(i) == len(matrix[0])])
-                j = [1 for i in j for j in matrix if type(i) in [int, float]]
+                j = [1 for k in matrix for i in k if type(i) in [int, float]]
                 if r != len(matrix):
                     raise TypeError("Each row of the matrix\
  must have the same size")
                 elif div == 0:
                     raise ZeroDivisionError("division by zero")
-                elif sum(j) > len(matrix) * len(matrix[0]):
+                elif sum(j) < len(matrix) * len(matrix[0]):
                     raise TypeError("matrix must be a matrix \
-(list of lists) of integers/floata")
+(list of lists) of integers/floats")
                 else:
                     r = map(lambda x: [round(i / div, 2) for i in x], matrix)
                     return list(r)

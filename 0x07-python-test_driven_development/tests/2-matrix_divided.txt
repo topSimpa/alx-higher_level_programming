@@ -55,3 +55,8 @@ TypeError: matrix_divided() missing 1 required positional argument: 'div'
 
 >>> matd([[1, 2], [4, 6]], 2)
 [[0.5, 1.0], [2.0, 3.0]]
+
+>>> matd([[1, "2"], [2, 4]], 2)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
