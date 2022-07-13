@@ -12,6 +12,11 @@ def matrix_divided(matrix, div):
                 if r != len(matrix):
                     raise TypeError("Each row of the matrix\
  must have the same size")
+                elif div == 0:
+                    raise ZeroDivisionError("div must be a number")
+                else:
+                    r = map(lambda x: [round(i / div, 2) for i in x], matrix)
+                    return list(r)
             elif type(div) in [int, float] and div != 0:
                 return list(map(lambda x: round(x / div, 2), matrix))
             elif div == 0:
