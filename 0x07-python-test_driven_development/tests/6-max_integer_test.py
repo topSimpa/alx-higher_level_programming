@@ -2,7 +2,7 @@
 """ define the test cases for a max_integer function """
 
 from unittest import TestCase
-max_int = __import__('6-max_integer_test.py').max_integer
+max_int = __import__('6-max_integer').max_integer
 
 
 class TestMaxInteger(TestCase):
