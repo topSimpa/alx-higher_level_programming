@@ -16,9 +16,9 @@ class TestMaxInteger(TestCase):
         self.assertEqual(max_int([-3, -7]), -3)
         self.assertEqual(max_int([1, 3, -2]), 3)
 
-    def test_type(self):
-        """ test for bad path raise type error """
+        """def test_type(self):
+         #""" test for bad path raise type error """
 
-        self.assertRaises(TypeError, max_int, "string")
-        self.assertRaises(TypeError, max_int, False)
-        self.assertRaises(TypeError, max_int, (2, 3))
+         self.assertRaises(TypeError, max_int, "string")
+         self.assertRaises(TypeError, max_int, False)
+         self.assertRaises(TypeError, max_int, (2, 3))"""
