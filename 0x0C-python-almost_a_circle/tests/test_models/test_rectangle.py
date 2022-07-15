@@ -16,7 +16,7 @@ class TriangleTestCases(TestCase):
 
         t = Rectangle(2, 3)
         self.assertIsInstance(t, Base)
-        self.assertIsInstance(t, Triangle)
+        self.assertIsInstance(t, Rectangle)
 
     def test_width_height(self):
         t = Rectangle(2, 3)
