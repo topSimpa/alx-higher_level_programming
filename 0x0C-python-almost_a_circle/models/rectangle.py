@@ -8,7 +8,7 @@ from models.base import Base
 class Rectangle(Base):
     """ prototype of triangle class, it a child of base"""
 
-    def __init__(self, width, height, x=0, y=0, id=None):
+    def __init__(self, width: int, height: int, x=0, y=0, id=None):
         self.width = width
         self.height = height
         self.x = x
@@ -64,6 +64,6 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
-    """ returns the area of the rectangle"""
+        """ returns the area of the rectangle"""
 
         return self.width * self.height
