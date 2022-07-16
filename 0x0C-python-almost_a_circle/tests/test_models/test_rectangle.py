@@ -39,5 +39,30 @@ class TriangleTestCases(TestCase):
         self.assertEqual(r.id, t.id + 1)
         self.assertEqual(i.id, r.id + 1)
 
+
+    def test_width(self):
+        with self.assertRaises(TypeError):
+            Rectangle(2.5, 2)
+        with self.assertRaises(ValueError):
+            Rectangle(-2, 1)
+
+    def test_height(self):
+        with self.assertRaises(TypeError):
+            Rectangle(2, 2.5)
+        with self.assertRaises(ValueError):
+            Rectangle(1, -2)
+
+    def test_x(self):
+        with self.assertRaises(TypeError):
+            Rectangle(1, 2, 2.5)
+        with self.assertRaises(ValueError):
+            Rectangle(1, 2, -2)
+
+    def test_y(self):
+        with self.assertRaises(TypeError):
+            Rectangle(1, 2, 1, -2.5)
+        with self.assertRaises(ValueError):
+            Rectangle(1, 2, 1, -2)
+
 if __name__ == 'main':
     unittest.main()
