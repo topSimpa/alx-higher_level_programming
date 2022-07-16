@@ -64,6 +64,11 @@ class TriangleTestCases(TestCase):
         with self.assertRaises(ValueError):
             Rectangle(1, 2, 1, -2)
 
+    def test_area(self):
+        t = Rectangle(1, 4)
+        self.assertEqual(t.area(), 4)
+
+
 """if __name__ == 'main':
     unittest.main()
 """
