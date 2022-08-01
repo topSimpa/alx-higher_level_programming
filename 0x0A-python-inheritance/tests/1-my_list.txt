@@ -7,7 +7,7 @@ Using ``MyList``
 This is an example text file in reStructuredText format. First import
 ``MyList`` from the ``example`` module:
 
->>> m_list = __import__('1-my_list.py').MyList
+>>> m_list = __import__("1-my_list").MyList
 
 >>> isinstance(m_list(), list)
 True
@@ -20,7 +20,10 @@ True
 >>> m.print_sorted()
 [1, 2, 3]
 
->>> type(Mujeeb([1, 2, 3])) == list
+>>> type(m) == list
+False
+
+>>> type(m) == m_list
 True
 
 >>> print(m)
