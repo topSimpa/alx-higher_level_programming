@@ -1,0 +1,37 @@
+Testing the ``7-base_geometry.txt``
+=================================
+
+first import the BaseGeometry Class:
+>>> BG = __import__('7-base_geometry').BaseGeometry
+
+initializing a BaseGeometry Class check:
+>>> b = BG()
+
+checking if the area method raises an error happy pass
+>>> b.area()
+Traceback (most recent call last):
+...
+Exception: area() is not implemented
+
+Happy pass integer_validator call
+>>> b.integer_validator("mujeeb", 1)
+
+Bad pass integer_valiadtor call string
+>>> b.integer_validator("mujeeb", "me")
+Traceback (most recent call last):
+...
+TypeError: mujeeb must be an integer
+
+Bad pass integer_validator call float
+>>> b.integer_validator("mujeeb", 2.5)
+Traceback (most recent call last):
+...
+TypeError: mujeeb must be an integer
+
+Bad pass integer_validator call negative integer
+>>> b.integer_validator("mujeeb", -1)
+Traceback (most recent call last):
+...
+ValueError: mujeeb must be greater than 0
+
+
