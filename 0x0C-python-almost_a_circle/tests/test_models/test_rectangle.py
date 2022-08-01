@@ -67,7 +67,9 @@ class TriangleTestCases(TestCase):
         t = Rectangle(1, 4)
         self.assertEqual(t.area(), 4)
 
-
+    def test_display_with_hash(self):
+        t = Rectangle(2, 3)
+        self.assertEqual(t.display(), "##\n##\n##\n")
 """if __name__ == 'main':
     unittest.main()
 """
