@@ -34,4 +34,35 @@ Traceback (most recent call last):
 ...
 ValueError: mujeeb must be greater than 0
 
+>>> b.integer_validator("mujeeb", 0)
+Traceback (most recent call last):
+...
+ValueError: mujeeb must be greater than 0
 
+Bad Pass integer_validator call with no argument
+>>> b.integer_validator("mujeeb")
+Traceback (most recent call last):
+...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+Bad pass integer_validator call with Boolean
+>>> b.integer_validator("mujeeb", False)
+Traceback (most recent call last):
+...
+TypeError: mujeeb must be an integer
+
+Bad pass integer_validator call with tuple
+>>> b.integer_validator("mujeeb", (1, 2))
+Traceback (most recent call last):
+...
+TypeError: mujeeb must be an integer
+
+>>> b.integer_validator("mujeeb", {1:2})
+Traceback (most recent call last):
+...
+TypeError: mujeeb must be an integer
+
+>>> b.integer_validator("mujeeb", None)
+Traceback (most recent call last):
+...
+TypeError: mujeeb must be an integer
