@@ -6,7 +6,8 @@ Rectangle = __import__("9-rectangle").Rectangle
 
 
 class Square(Rectangle):
-    """ this class is a child of BaseGeometry"""
+    """ this class is a child of Rectangle"""
+
 
     def __init__(self, size):
         """initializes the class attribute"""
