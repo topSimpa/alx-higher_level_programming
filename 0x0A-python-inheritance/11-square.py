@@ -8,7 +8,6 @@ Rectangle = __import__("9-rectangle").Rectangle
 class Square(Rectangle):
     """ this class is a child of Rectangle"""
 
-
     def __init__(self, size):
         """initializes the class attribute"""
         self.integer_validator("size", size)
@@ -20,4 +19,4 @@ class Square(Rectangle):
 
     def __str__(self):
         """ representation of square """
-	return (f"[Square] {self.__size}/{self.__size}")
+        return (f"[Square] {self.__size}/{self.__size}")
