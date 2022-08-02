@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""this defines the rectangle class"""
+"""this defines the square class"""
 
 
 Rectangle = __import__("9-rectangle").Rectangle
@@ -18,4 +18,5 @@ class Square(Rectangle):
         return (self.__size ** 2)
 
     def __str__(self):
+        """ representation of square """
 	return (f"[Square] {self.__size}/{self.__size}")
