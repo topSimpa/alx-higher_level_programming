@@ -66,3 +66,13 @@ TypeError: mujeeb must be an integer
 Traceback (most recent call last):
 ...
 TypeError: mujeeb must be an integer
+
+>>> b.integer_validator("mujeeb", [3])
+Traceback (most recent call last):
+...
+TypeError: mujeeb must be an integer
+
+>>> b.integer_validator("mujeeb", {1, 2})
+Traceback (most recent call last):
+...
+TypeError: mujeeb must be an integer
