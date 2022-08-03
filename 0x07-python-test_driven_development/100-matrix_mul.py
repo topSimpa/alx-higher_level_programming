@@ -20,9 +20,9 @@ def matrix_mul(m_a, m_b):
     if len(m_b) == 1 and not m_b[0]:
         raise ValueError("m_b can't be empty")
     if sum(list_check) != len(m_a):
-        raise TypeError("m_a must be a list of list")
+        raise TypeError("m_a must be a list of lists")
     if sum(list_checkb) != len(m_b):
-        raise TypeError("m_b must be a list of list")
+        raise TypeError("m_b must be a list of lists")
 
     def type_check(x):
         if type(x) in [int, float]:
