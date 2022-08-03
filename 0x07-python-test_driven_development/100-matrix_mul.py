@@ -54,5 +54,5 @@ def matrix_mul(m_a, m_b):
             for i in range(len(m_b)):
                 ins += a[i] * m_b[i][b]
             new_row.append(ins)
-        result.append(l)
+        result.append(new_row)
     return (result)
