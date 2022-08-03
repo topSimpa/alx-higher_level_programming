@@ -1,0 +1,76 @@
+The "100-matrix_mul" module tests
+================================
+using the matrix_mul function
+-------------------------------
+
+first import the function
+>>> mm = __import__('100-matrix_mul').matrix_mul
+
+>>> mm(2, [[1, 2, 3]])
+Traceback (most recent call last):
+...
+TypeError: m_a must be a list
+
+>>> mm([[1, 2, 3]], 2)
+Traceback (most recent call last):
+...
+TypeError: m_b must be a list
+
+>>> mm([2, 2, 3], [2, 3, 4])
+Traceback (most recent call last):
+...
+TypeError: m_a must be a list of list
+
+>>> mm([[2, 3, 4]], [2, 3, 4])
+Traceback (most recent call last):
+...
+TypeError: m_b must be a list of list
+
+>>> mm([["2", 1, 2]], [[2, 2, 3]])
+Traceback (most recent call last):
+...
+TypeError: m_a should contain only integers or floats
+
+>>> mm([[2, 2, 3]], [["2", 3, 4]])
+Traceback (most recent call last):
+...
+TypeError: m_b should contain only integers or floats
+
+>>> mm([[]], [[1, 2, 3]])
+Traceback (most recent call last):
+...
+ValueError: m_a can't be empty
+
+>>> mm([], [[1, 2, 3]])
+Traceback (most recent call last):
+...
+ValueError: m_a can't be empty
+
+>>> mm([[1, 2, 3]], [[]])
+Traceback (most recent call last):
+...
+ValueError: m_b can't be empty
+
+>>> mm([[1, 2, 3]], [])
+Traceback (most recent call last):
+...
+ValueError: m_b can't be empty
+
+>>> mm([[2, 3, 2], [2, 1]], [[1, 2, 3]])
+Traceback (most recent call last):
+...
+TypeError: each row of m_a must be of the same size
+
+>>> mm([[2, 2, 3]], [[2, 2, 3], [2, 1]])
+Traceback (most recent call last):
+...
+TypeError: each row of m_b must be of the same size
+
+>>> mm([[2, 2, 3], [2, 3, 1]], [[2, 3], [2, 2]])
+Traceback (most recent call last):
+...
+ValueError: m_a and m_b can't be multiplied
+
+>>> mm([[2, 3], [2, 2]], [[2, 2, 3], [2, 3, 1]])
+[[10, 13, 9], [8, 10, 8]]
+
