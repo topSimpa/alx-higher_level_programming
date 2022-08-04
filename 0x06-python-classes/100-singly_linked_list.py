@@ -55,9 +55,10 @@ class SinglyLinkedList:
     def __str__(self):
         """ This is the method to print with"""
         r = self.__head
-
-        rep = f"{r.data}"
-        r = r.next_node
+        rep = ""
+        if r is not None:
+            rep = f"{r.data}"
+            r = r.next_node
         while r is not None:
             rep += f"\n{r.data}"
             r = r.next_node
