@@ -1,5 +1,5 @@
 #!/usr/bin/node
-const Rectangle = require('./2-rectangle');
+const Rectangle = require('./3-rectangle');
 
 const r1 = new Rectangle(4, 5);
 console.log(r1);
@@ -15,4 +15,4 @@ const r3 = new Rectangle(2);
 console.log(r3);
 console.log(r3.width);
 console.log(r3.height);
-
+r1.print();
