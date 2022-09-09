@@ -1,9 +1,6 @@
 #!/usr/bin/node
-const Square = require('./6-square');
+const nbOccurences = require('./7-occurrences').nbOccurences;
 
-const s1 = new Square(4);
-s1.charPrint();
-
-s1.charPrint('C');
-
-s1.charPrint('KKK');
+console.log(nbOccurences([1, 2, 3, 4, 5, 6], 3));
+console.log(nbOccurences([3, 2, 3, 4, 5, 3, 3], 3));
+console.log(nbOccurences(["S", 12, "c", "S", "School", 8], "S"));
