@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+""" This query a database for a table called states for all entry"""
+
+
 import MySQLdb
 import sys
 
