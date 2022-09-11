@@ -18,8 +18,11 @@ if __name__ == "__main__":
                 ORDER BY cities.id ASC",
                 (arg[4],))
     rows = cur.fetchall()
-    for row in rows:
-        if row != rows[-1]:
-            print(row[0], end=", ")
-        else:
-            print(row[0])
+    if rows:
+        for row in rows:
+            if row != rows[-1]:
+                print(row[0], end=", ")
+            else:
+                print(row[0])
+    else:
+        print("")
