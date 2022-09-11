@@ -3,7 +3,7 @@
    delete all state
    that has 'a' in it name
 
-   Usage: ./9-model_state_delete_a.py <username> <passwd> <database name>
+   Usage: ./13-model_state_delete_a.py <username> <passwd> <database name>
 """
 
 
@@ -21,7 +21,7 @@ if __name__ == "__main__":
     Session.configure(bind=engine)
     session = Session()
 
-    for instance in session.query(State).order_by(State.id):
+    for instance in session.query(State):
         if 'a' in instance.name:
             session.delete(instance)
     session.commit()
