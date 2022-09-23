@@ -8,5 +8,5 @@ from urllib.request import urlopen
 with urlopen('https://alx-intranet.hbtn.io/status') as request:
     body = request.read()
 
-print(f"Body response:\n    - type: {type(body)}\n\
-    - content: {body}\n    - utf8 content: {body.decode()}")
+print(f"Body response:\n\t- type: {type(body)}\n\t- content: {body}\n\t\
+- utf8 content: {body.decode()}")
