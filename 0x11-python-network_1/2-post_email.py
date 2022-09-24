@@ -6,7 +6,10 @@
 if __name__ == "__main__":
     import sys
     from urllib.request import urlopen, Request
+    from urllib.parse import urlencode
 
-    req = Request(sys.argv[1], (sys.argv[2]).encode)
+    data = {'email': sys.argv[2]}
+    data = urlencode(data)
+    req = Request(sys.argv[1], data.encode('ascii'))
     with urlopen(req) as request:
-        print(request.read())
+        print(request.read().decode('utf-8'))
