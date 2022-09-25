@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""tries to get the json format of post reques
+"""tries to get the json format of post requests
+   it uses  the requests method .json
    Usage: ./8-json_api.py <letter>
 """
 import requests
@@ -11,7 +12,7 @@ if __name__ == '__main__':
     else:
         q = sys.argv[0]
 
-    letters = {'letter': q)
+    letters = {'letter': q}
     resp = requests.post('http://0.0.0.0:5000/search_user', data=letters)
 
     try:
