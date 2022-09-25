@@ -7,7 +7,7 @@ import requests
 import sys
 
 if __name__ == '__main__':
-    if sys.argv == []:
+    if len(sys.argv) == 1:
         q = ""
     else:
         q = sys.argv[0]
