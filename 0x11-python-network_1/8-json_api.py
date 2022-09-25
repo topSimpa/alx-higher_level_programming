@@ -6,7 +6,12 @@ import requests
 import sys
 
 if __name__ == '__main__':
-    letters = {'letter': sys.argv[0])
+    if sys.argv == []:
+        q = ""
+    else:
+        q = sys.argv[0]
+
+    letters = {'letter': q)
     resp = requests.post('http://0.0.0.0:5000/search_user', data=letters)
 
     try:
