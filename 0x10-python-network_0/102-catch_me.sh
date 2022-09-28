@@ -1,3 +1,3 @@
 #!/bin/bash
 #print the size in byte of a response
-curl -s -w "You got me!" "$1"
+curl -sl -o /dev/null -w "You got me!" 0.0.0.0:5000/catch_me
