@@ -2,7 +2,7 @@
 // send a request to star wars api
 
 const request = require('request');
-const actor = 'https://swapi-api.hbtn.io/api/people/18/';
+const actor = 18;
 const url = process.argv[2];
 request(url, function (error, response, body) {
   if (error) {
@@ -15,7 +15,7 @@ request(url, function (error, response, body) {
     let char;
     for (film in films.results) {
       for (char in films.results[film].characters) {
-        if (actor === films.results[film].characters[char]) {
+        if (films.results[film].characters[char].includes('18')) {
           sum++;
         }
       }
