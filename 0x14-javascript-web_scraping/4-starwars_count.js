@@ -2,7 +2,6 @@
 // send a request to star wars api
 
 const request = require('request');
-const actor = 18;
 const url = process.argv[2];
 request(url, function (error, response, body) {
   if (error) {
