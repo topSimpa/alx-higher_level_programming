@@ -9,32 +9,19 @@ request(url, function (error, response, body) {
   } else if (response.statusCode === 200) {
     const todos = JSON.parse(body);
 
-    let user;
-    let sum = 0;
-    let userId = todos[0].userId;
+    let task;
+    let work;
     const employeeTask = {};
-    for (user in todos) {
-      if (user === todos.length - 1) {
-        console.log("yes")
-        if (todos[user].completed) {
-          sum++;
+    for (task in todos) {
+      work = todos[task];
+      if (work.completed) {
+        if (employeeTask[work.userId] === undefined) {
+          employeeTask[work.userId] = 1;
+        } else {
+          employeeTask[work.userId]++;
         }
-        if (sum > 0) {
-          employeeTask[userId] = sum;
-        }
-        console.log(employeeTask);
-        break;
-      }
-      if (todos[user].userId !== userId) {
-        if (sum > 0) {
-          employeeTask[userId] = sum;
-        }
-        userId = todos[user].userId;
-        sum = 0;
-      }
-      if (todos[user].completed) {
-        sum++;
       }
     }
+    console.log(employeeTask);
   }
 });
