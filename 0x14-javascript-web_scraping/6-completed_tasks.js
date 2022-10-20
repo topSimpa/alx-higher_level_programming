@@ -10,19 +10,30 @@ request(url, function (error, response, body) {
     const todos = JSON.parse(body);
 
     let user;
-    let task;
+    let sum = 0;
+    let userId = todos[0].userId;
     const employeeTask = {};
-    for (user = 0; (user + 1) * 20 <= 200; user++) {
-      let sum = 0;
-      for (task = 0; task < 20; task++) {
-        if (todos[(user * 20) + task].completed === true) {
+    for (user in todos) {
+      if (user === todos.length - 1) {
+        if (todos[user].completed) {
           sum++;
         }
+        if (sum > 0) {
+          employeeTask[userId] = sum;
+        }
+        console.log(employeeTask);
+        break;
       }
-      if (sum > 0) {
-        employeeTask[user + 1] = sum;
+      if (todos[user].userId !== userId) {
+        if (sum > 0) {
+          employeeTask[userId] = sum;
+        }
+        userId = todos[user].userId;
+        sum = 0;
+      }
+      if (todos[user].completed) {
+        sum++;
       }
     }
-    console.log(employeeTask);
   }
 });
