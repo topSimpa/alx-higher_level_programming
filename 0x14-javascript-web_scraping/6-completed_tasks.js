@@ -15,6 +15,7 @@ request(url, function (error, response, body) {
     const employeeTask = {};
     for (user in todos) {
       if (user === todos.length - 1) {
+        print("yes")
         if (todos[user].completed) {
           sum++;
         }
