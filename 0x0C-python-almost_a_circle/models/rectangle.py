@@ -65,10 +65,16 @@ class Rectangle(Base):
 
     def area(self):
         """ returns the area of the rectangle"""
-
         return self.width * self.height
+
     def display(self):
         """ displays a rectangle with # filled space"""
 
         for i in range(self.height):
             print("#" * self.width)
+
+    def __str__(self) -> str:
+        """overwrites default"""
+        return ("[Rectangle] ({}) {}/{} - {}/{}".format(
+            self.id, self.x, self.y, self.width, self.height
+        ))
