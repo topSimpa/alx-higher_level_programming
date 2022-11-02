@@ -46,10 +46,16 @@ class SquareTestCases(TestCase):
         i = Square(2)
         self.assertEqual(i.id, r.id + 1)
 
-    def test_size(self):
-        """test if size is set"""
+    def test_size_getter(self):
+        """test if size is gotten"""
         s = Square(3)
         self.assertEqual(s.size, 3)
+
+    def test_size_setter(self):
+        """ test if id could be set"""    
+        s = Square(3)
+        s.size = 5
+        self.assertEqual(s.size, 5)
 
     def test_width_type_error(self):
         """test to see if type error is raised"""
