@@ -151,3 +151,39 @@ class TriangleTestCases(TestCase):
         r = Rectangle(2, 3, 2, 0, 10)
         r.update(1, 5, 7, 9)
         self.assertEqual(str(r), "[Rectangle] (1) 9/0 - 5/7")
+
+    def test_updatedict1(self):
+        """test for 1 items"""
+        r = Rectangle(10, 10, 10, 10, 10)
+        r.update(height=1)
+        self.assertEqual(str(r), "[Rectangle] (10) 10/10 - 10/1")
+
+    def test_updatedictid(self):
+        """test for updte of 1 items"""
+        r = Rectangle(10, 10, 10, 10)
+        r.update(id=2)
+        self.assertEqual(str(r), "[Rectangle] (2) 10/10 - 10/10")
+
+    def test_updatedict2(self):
+        """test for update of 2 items"""
+        r = Rectangle(10, 10, 10, 10, 10)
+        r.update(width=3, height=4)
+        self.assertEqual(str(r), "[Rectangle] (10) 10/10 - 3/4")
+
+    def test_updatedict3(self):
+        """test for update of 3 items"""
+        r = Rectangle(10, 10, 10, 10, 10)
+        r.update(width=3, height=4, x=2)
+        self.assertEqual(str(r), "[Rectangle] (10) 2/10 - 3/4")
+
+    def test_updatedict4(self):
+        """test for update of 4 items"""
+        r = Rectangle(10, 10, 10, 10, 10)
+        r.update(width=3, height=4, x=2, y=3)
+        self.assertEqual(str(r), "[Rectangle] (10) 2/3 - 3/4")
+
+    def test_updatedict5(self):
+        """The test for update of five items"""
+        r = Rectangle(10, 10, 10, 10)
+        r.update(width=3, height=4, x=2, y=3, id=1)
+        self.assertEqual(str(r), "[Rectangle] (1) 2/3 - 3/4")

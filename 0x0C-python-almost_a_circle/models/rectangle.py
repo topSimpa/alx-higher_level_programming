@@ -82,13 +82,18 @@ class Rectangle(Base):
             self.id, self.x, self.y, self.width, self.height
         ))
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """update attributes of class"""
-        try:
-            self.id = args[0]
-            self.width = args[1]
-            self.height = args[2]
-            self.x = args[3]
-            self.y = args[4]
-        except Exception:
-            self
+        if args:
+            try:
+                self.id = args[0]
+                self.width = args[1]
+                self.height = args[2]
+                self.x = args[3]
+                self.y = args[4]
+            except Exception:
+                self
+        elif kwargs:
+            for attr, val in kwargs.items():
+                if attr in dir(self):
+                    setattr(self, attr, val)
