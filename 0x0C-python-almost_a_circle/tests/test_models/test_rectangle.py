@@ -99,7 +99,6 @@ class TriangleTestCases(TestCase):
         sys.stdout = sys.__stdout__
         self.assertEqual(capture_output.getvalue(), "\n\n  ##\n  ##\n  ##\n")
 
-
     def test_string(self):
         """test if the string representation is right"""
         t = Rectangle(1, 4, 3, 2, 12)
