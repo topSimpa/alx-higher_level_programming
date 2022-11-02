@@ -83,6 +83,7 @@ class Rectangle(Base):
         ))
 
     def update(self, *args):
+        """update attributes of class"""
         try:
             self.id = args[0]
             self.width = args[1]
