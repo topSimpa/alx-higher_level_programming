@@ -9,6 +9,7 @@ from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 
+
 class SquareTestCases(TestCase):
     """ the test cases for the triangle classes as a method """
 
@@ -37,13 +38,18 @@ class SquareTestCases(TestCase):
     def test_heightequalwidth(self):
         """test if height and width are same"""
         s = Square(3)
-        self.assertEqual(s.height, s.width)    
+        self.assertEqual(s.height, s.width)
 
     def test_id_multiple_none(self):
         """ test if id is set automatically"""
         r = Square(3)
         i = Square(2)
         self.assertEqual(i.id, r.id + 1)
+
+    def test_size(self):
+        """test if size is set"""
+        s = Square(3)
+        self.assertEqual(s.size, 3)
 
     def test_width_type_error(self):
         """test to see if type error is raised"""
@@ -106,7 +112,8 @@ class SquareTestCases(TestCase):
         sys.stdout = capture_output
         r.display()
         sys.stdout = sys.__stdout__
-        self.assertEqual(capture_output.getvalue(), "\n\n  ###\n  ###\n  ###\n")
+        self.assertEqual(capture_output.getvalue(),
+                         "\n\n  ###\n  ###\n  ###\n")
 
     def test_string(self):
         """test if the string representation is right"""
