@@ -121,3 +121,33 @@ class TriangleTestCases(TestCase):
         r.display()
         sys.stdout = sys.__stdout__
         self.assertEqual(capture_output.getvalue(), "  ##\n  ##\n  ##\n")
+
+    def test_update(self):
+        """test for all update"""
+        r = Rectangle(2, 3, 2, 0)
+        r.update(1, 2, 3, 4, 5)
+        self.assertEqual(str(r), "[Rectangle] (1) 4/5 - 2/3")
+
+    def test_update_id(self):
+        """test for id update"""
+        r = Rectangle(2, 3, 2, 0, 10)
+        r.update(1)
+        self.assertEqual(str(r), "[Rectangle] (1) 2/0 - 2/3")
+
+    def test_update_idnwidth(self):
+        """test for id and width update"""
+        r = Rectangle(2, 3, 2, 0, 10)
+        r.update(1, 5)
+        self.assertEqual(str(r), "[Rectangle] (1) 2/0 - 5/3")
+
+    def test_update_len3(self):
+        """test for id, width, height update"""
+        r = Rectangle(2, 3, 2, 0, 10)
+        r.update(1, 5, 7)
+        self.assertEqual(str(r), "[Rectangle] (1) 2/0 - 5/7")
+
+    def test_updatelen4(self):
+        """tesst id, width, height, x update"""
+        r = Rectangle(2, 3, 2, 0, 10)
+        r.update(1, 5, 7, 9)
+        self.assertEqual(str(r), "[Rectangle] (1) 9/0 - 5/7")
