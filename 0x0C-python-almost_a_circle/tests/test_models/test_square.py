@@ -111,7 +111,7 @@ class SquareTestCases(TestCase):
     def test_string(self):
         """test if the string representation is right"""
         t = Square(1, 3, 2, 12)
-        self.assertEqual(str(t), "[Rectangle] (12) 3/2 - 1")
+        self.assertEqual(str(t), "[Square] (12) 3/2 - 1")
 
     def test_string_x_zero(self):
         """test if the string representation is rigth y=0"""
