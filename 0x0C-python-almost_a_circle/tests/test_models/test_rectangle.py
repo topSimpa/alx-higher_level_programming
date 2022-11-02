@@ -17,7 +17,7 @@ class TriangleTestCases(TestCase):
         self.assertIsInstance(Rectangle(2, 3), Base)
 
     def test_instance_of_rectangle(self):
-        """ test if instance is an instance of rectange of Base and Rectangle"""
+        """ test if instance is an instance of rectange or base"""
         self.assertIsInstance(Rectangle(2, 3), Rectangle)
 
     def test_width_rigth(self):
@@ -35,7 +35,6 @@ class TriangleTestCases(TestCase):
         r = Rectangle(4, 3, 4, 5)
         i = Rectangle(2, 1, 3, 5)
         self.assertEqual(i.id, r.id + 1)
-
 
     def test_width_type_error(self):
         """test to see if type error is raised"""
@@ -95,8 +94,3 @@ class TriangleTestCases(TestCase):
         """test if the string representation is right"""
         t = Rectangle(1, 4, 3, 2, 12)
         self.assertEqual(str(t), "[Rectangle] (12) 3/2 - 1/4")
-
-
-"""if __name__ == 'main':
-    unittest.main()
-"""
