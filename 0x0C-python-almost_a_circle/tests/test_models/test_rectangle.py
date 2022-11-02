@@ -103,3 +103,21 @@ class TriangleTestCases(TestCase):
         """test if the string representation is right"""
         t = Rectangle(1, 4, 3, 2, 12)
         self.assertEqual(str(t), "[Rectangle] (12) 3/2 - 1/4")
+
+    def test_string_x_zero(self):
+        """test if the string representation is rigth y=0"""
+        r = Rectangle(2, 3, 0, 2)
+        capture_output = io.StringIO()
+        sys.stdout = capture_output
+        r.display()
+        sys.stdout = sys.__stdout__
+        self.assertEqual(capture_output.getvalue(), "\n\n##\n##\n##\n")
+
+    def test_string_y_zero(self):
+        """test if the string representation is rigth y=0"""
+        r = Rectangle(2, 3, 2, 0)
+        capture_output = io.StringIO()
+        sys.stdout = capture_output
+        r.display()
+        sys.stdout = sys.__stdout__
+        self.assertEqual(capture_output.getvalue(), "  ##\n  ##\n  ##\n")
