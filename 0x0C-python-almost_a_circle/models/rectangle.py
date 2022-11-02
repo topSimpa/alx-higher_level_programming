@@ -69,8 +69,11 @@ class Rectangle(Base):
 
     def display(self):
         """ displays a rectangle with # filled space"""
-
-        for i in range(self.height):
+        for i in range(self.y):
+            print("")
+        for h in range(self.height):
+            for j in range(self.x):
+                print(" ", end="")
             print("#" * self.width)
 
     def __str__(self) -> str:

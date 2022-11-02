@@ -90,6 +90,16 @@ class TriangleTestCases(TestCase):
         sys.stdout = sys.__stdout__
         self.assertEqual(capture_output.getvalue(), "##\n##\n##\n")
 
+    def test_display_with_axis(self):
+        """test display of rectangle with axis"""
+        r = Rectangle(2, 3, 2, 2)
+        capture_output = io.StringIO()
+        sys.stdout = capture_output
+        r.display()
+        sys.stdout = sys.__stdout__
+        self.assertEqual(capture_output.getvalue(), "\n\n  ##\n  ##\n  ##\n")
+
+
     def test_string(self):
         """test if the string representation is right"""
         t = Rectangle(1, 4, 3, 2, 12)
