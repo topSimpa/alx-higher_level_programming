@@ -5,10 +5,14 @@ from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
+    """Square class a child of Rectangle"""
+
     def __init__(self, size: int, x=0, y=0, id=None):
+        """Initializes a square"""
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
+        """String representation of object"""
         return "[Square] ({}) {}/{} - {}".format(
             self.id, self.x, self.y, self.height
         )
