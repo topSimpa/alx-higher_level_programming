@@ -20,11 +20,12 @@ class Base:
     def save_to_file(cls, list_objs):
         """help to write the JSON string to a file"""
         with open("{}.json".format(cls.__name__), 'w') as file:
-            if list_objs:
-                list_dict = []
-                for i in list_objs:
-                    list_dict.append(i.to_dictionary())
-                file.write(cls.to_json_string(list_dict))
+            if not list_objs:
+                list_objs = []
+            list_dict = []
+            for i in list_objs:
+                list_dict.append(i.to_dictionary())
+            file.write(cls.to_json_string(list_dict))
 
     def __init__(self, id=None):
         """ initializes instance attributes"""
