@@ -44,6 +44,18 @@ class Base:
         instance.update(**dictionary)
         return instance
 
+    @classmethod
+    def load_from_file(cls):
+        """create/loads a list of objects from files"""
+        with open("{}.json".format(cls.__name__), 'r') as file:
+            json_string = file.readline()
+            list_dict = Base.from_json_string(json_string)
+            list_obj = []
+            print(list_dict)
+            for i in list_dict:
+                list_obj.append(cls.create(**i))
+        return list_obj
+
     def __init__(self, id=None):
         """ initializes instance attributes"""
 
@@ -51,4 +63,4 @@ class Base:
             self.id = id
         else:
             Base.__nb_objects += 1
-            self.id = Base.__nb_objects
+            self.id = Base.__nb_object
