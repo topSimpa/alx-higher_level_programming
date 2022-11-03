@@ -27,6 +27,13 @@ class Base:
                 list_dict.append(i.to_dictionary())
             file.write(cls.to_json_string(list_dict))
 
+    @staticmethod
+    def from_json_string(json_string):
+        """deserialize the json list of dictionary"""
+        if not json_string:
+            return(json.loads('[]'))
+        return (json.loads(json_string))
+
     def __init__(self, id=None):
         """ initializes instance attributes"""
 
