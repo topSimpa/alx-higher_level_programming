@@ -30,6 +30,7 @@ class Square(Rectangle):
         self.height = val
 
     def update(self, *args, **kwargs):
+        """method to update square"""
         if args:
             try:
                 self.id = args[0]
@@ -41,4 +42,4 @@ class Square(Rectangle):
         elif kwargs:
             for attr, val in kwargs.items():
                 if attr in dir(self):
-                    setattr(self, attr, val)        
+                    setattr(self, attr, val)
