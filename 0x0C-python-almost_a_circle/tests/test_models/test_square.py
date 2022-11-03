@@ -209,3 +209,10 @@ class SquareTestCases(TestCase):
         r = Square(10, 10, 10, 10)
         r.update(size=3, x=2, y=3, id=1)
         self.assertEqual(str(r), "[Square] (1) 2/3 - 3")
+
+    def test_to_dict(self):
+        """test the to_dictionary method"""
+        s = Square(10, 10, 10, 10)
+        self.assertDictEqual(s.to_dictionary(), {
+            "id": 10, "size": 10, "x": 10, "y": 10
+        })

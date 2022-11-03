@@ -187,3 +187,10 @@ class TriangleTestCases(TestCase):
         r = Rectangle(10, 10, 10, 10)
         r.update(width=3, height=4, x=2, y=3, id=1)
         self.assertEqual(str(r), "[Rectangle] (1) 2/3 - 3/4")
+
+    def test_to_dict(self):
+        """test the to_dictionary method"""
+        r = Rectangle(10, 10, 10, 10, 10)
+        self.assertDictEqual(r.to_dictionary(), {
+            "id": 10, "width": 10, "height": 10, "x": 10, "y": 10
+        })
