@@ -47,14 +47,16 @@ class Base:
     @classmethod
     def load_from_file(cls):
         """create/loads a list of objects from files"""
-        with open("{}.json".format(cls.__name__), 'r') as file:
-            json_string = file.readline()
-            list_dict = Base.from_json_string(json_string)
-            list_obj = []
-            print(list_dict)
-            for i in list_dict:
-                list_obj.append(cls.create(**i))
-        return list_obj
+        try:
+            with open("{}.json".format(cls.__name__), 'r') as file:
+                json_string = file.readline()
+                list_dict = Base.from_json_string(json_string)
+                list_obj = []
+                for i in list_dict:
+                    list_obj.append(cls.create(**i))
+            return list_obj
+        except FileNotFoundError:
+            return []
 
     def __init__(self, id=None):
         """ initializes instance attributes"""
