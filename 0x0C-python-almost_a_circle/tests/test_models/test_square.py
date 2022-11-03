@@ -52,7 +52,7 @@ class SquareTestCases(TestCase):
         self.assertEqual(s.size, 3)
 
     def test_size_setter(self):
-        """ test if id could be set"""    
+        """ test if id could be set"""
         s = Square(3)
         s.size = 5
         self.assertEqual(s.size, 5)
@@ -143,3 +143,69 @@ class SquareTestCases(TestCase):
         r.display()
         sys.stdout = sys.__stdout__
         self.assertEqual(capture_output.getvalue(), "  ###\n  ###\n  ###\n")
+
+    def test_update(self):
+        """test for all update"""
+        r = Square(3)
+        r.update(1, 2, 3, 4)
+        self.assertEqual(str(r), "[Square] (1) 3/4 - 2")
+
+    def test_update_id(self):
+        """test for id update"""
+        r = Square(2, 2, 0)
+        r.update(1)
+        self.assertEqual(str(r), "[Square] (1) 2/0 - 2")
+
+    def test_update_idnwidth(self):
+        """test for id and width update"""
+        r = Square(2, 3, 2, 10)
+        r.update(1, 5)
+        self.assertEqual(str(r), "[Square] (1) 3/2 - 5")
+
+    def test_update_len3(self):
+        """test for id, width, height update"""
+        r = Square(2, 3, 2, 10)
+        r.update(1, 5, 7)
+        self.assertEqual(str(r), "[Square] (1) 7/2 - 5")
+
+    def test_updatedict1(self):
+        """test for 1 items"""
+        r = Square(10, 10, 10, 10)
+        r.update(size=1)
+        self.assertEqual(str(r), "[Square] (10) 10/10 - 1")
+
+    def test_updatedictid(self):
+        """test for updte of 1 items"""
+        r = Square(10, 10, 10)
+        r.update(id=2)
+        self.assertEqual(str(r), "[Square] (2) 10/10 - 10")
+
+    def test_updatedictx(self):
+        """test for update of x"""
+        r = Square(10, 10, 10, 10)
+        r.update(x=2)
+        self.assertEqual(str(r), "[Square] (10) 2/10 - 10")
+
+    def test_updatedicty(self):
+        """test for update of y"""
+        r = Square(10, 10, 10, 10)
+        r.update(y=2)
+        self.assertEqual(str(r), "[Square] (10) 10/2 - 10")
+
+    def test_updatedict2(self):
+        """test for update of 2 items"""
+        r = Square(10, 10, 10, 10)
+        r.update(id=2, size=3)
+        self.assertEqual(str(r), "[Square] (2) 10/10 - 3")
+
+    def test_updatedict3(self):
+        """The test for update of 3 items"""
+        r = Square(10, 10, 10, 10)
+        r.update(size=3, x=2, y=3)
+        self.assertEqual(str(r), "[Square] (10) 2/3 - 3")
+
+    def test_updatedict4(self):
+        """The test for update of 4 items"""
+        r = Square(10, 10, 10, 10)
+        r.update(size=3, x=2, y=3, id=1)
+        self.assertEqual(str(r), "[Square] (1) 2/3 - 3")
