@@ -31,8 +31,18 @@ class Base:
     def from_json_string(json_string):
         """deserialize the json list of dictionary"""
         if not json_string:
-            return(json.loads('[]'))
+            return (json.loads('[]'))
         return (json.loads(json_string))
+
+    @classmethod
+    def create(cls, **dictionary):
+        """create an object of class from a dictionary"""
+        if cls.__name__ == "Rectangle":
+            instance = cls(2, 3)
+        elif cls.__name__ == "Square":
+            instance = cls(3)
+        instance.update(**dictionary)
+        return instance
 
     def __init__(self, id=None):
         """ initializes instance attributes"""
