@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ defines the very first class of this package"""
+import json
 
 
 class Base:
@@ -15,3 +16,10 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    def to_json_string(list_dictionaries):
+        """return a json format of list of dictionary"""
+        if not list_dictionaries:
+            return (json.dumps([]))
+        else:
+            return (json.dumps(list_dictionaries))
