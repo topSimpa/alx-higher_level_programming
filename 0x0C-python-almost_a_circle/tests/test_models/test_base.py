@@ -117,3 +117,32 @@ class BaseIOTestCases(TestCase):
             self.assertEqual(Rectangle.load_from_file(), empty)
         else:
             self.assertEqual(Rectangle.load_from_file(), empty)
+
+    def test__toandfrom_file_csv(self):
+        """test if csv is correctly formatted"""
+        square_list = [a, b]
+        rectangle_list = [c, d]
+        s_listdict = [a.to_dictionary(), b.to_dictionary()]
+        r_listdict = [c.to_dictionary(), d.to_dictionary()]
+
+        # save and load square
+        Square.save_to_file_csv(square_list)
+        out = [i.to_dictionary() for i in Square.load_from_file_csv()]
+        self.assertEqual(s_listdict, out)
+
+        # save and load rectangle
+        Rectangle.save_to_file_csv(rectangle_list)
+        out = [i.to_dictionary() for i in Rectangle.load_from_file_csv()]
+        self.assertEqual(r_listdict, out)
+
+        #save and load empty
+        Square.save_to_file_csv(None)
+        out = Square.load_from_file_csv()
+        self.assertEqual([], out)
+
+        #test to handle file not found Rectangle
+        if os.path.isfile('Rectangle.csv'):
+            os.remove('Rectangle.csv')
+            self.assertEqual(Rectangle.load_from_file_csv(), [])
+        else:
+            self.assertEqual(Rectangle.load_from_file_csv(), [])
