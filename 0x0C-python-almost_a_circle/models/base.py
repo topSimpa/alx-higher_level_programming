@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ defines the very first class of this package"""
 import json
+import csv
 
 
 class Base:
@@ -55,6 +56,35 @@ class Base:
                 for i in list_dict:
                     list_obj.append(cls.create(**i))
             return list_obj
+        except FileNotFoundError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objects):
+        """serializing to csv file"""
+        with open("{}.csv".format(cls.__name__), 'w') as file:
+            if list_objects:
+                fieldname = list(list_objects[0].to_dictionary().keys())
+                writer = csv.DictWriter(file, fieldnames=fieldname)
+                writer.writeheader()
+                for i in list_objects:
+                    writer.writerow(i.to_dictionary())
+            else:
+                writer = csv.writer(file)
+                writer.writerow([])
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """deserializing to csv file"""
+        try:
+            with open("{}.csv".format(cls.__name__), 'r') as file:
+                reader = csv.DictReader(file)
+                list_objs = []
+                for row in reader:
+                    for r in row:
+                        row[r] = int(row[r])
+                    list_objs.append(cls.create(**row))
+                return list_objs
         except FileNotFoundError:
             return []
 
