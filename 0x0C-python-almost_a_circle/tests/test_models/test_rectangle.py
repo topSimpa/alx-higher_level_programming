@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" defines test for the triangle class"""
+""" defines test for the rectangle class"""
 
 
 import io
@@ -10,7 +10,7 @@ from models.rectangle import Rectangle
 
 
 class TriangleTestCases(TestCase):
-    """ the test cases for the triangle classes as a method """
+    """ the test cases for the rectangle class """
 
     def test_instance_of_base(self):
         """ test if instances are instance of Base and Rectangle"""
@@ -40,6 +40,12 @@ class TriangleTestCases(TestCase):
         """test to see if type error is raised"""
         with self.assertRaises(TypeError):
             Rectangle(2.5, 2)
+
+    def test_width_type_error2(self):
+        """test setting by . dot """
+        with self.assertRaises(TypeError):
+            r = Rectangle(3, 4)
+            r.width = "3"
 
     def test_width_value_error(self):
         """test to see if ValueError is raised"""
