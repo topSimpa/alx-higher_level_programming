@@ -46,6 +46,8 @@ class TriangleTestCases(TestCase):
         with self.assertRaises(TypeError):
             r = Rectangle(3, 4)
             r.width = "3"
+        with self.assertRaises(TypeError):
+            Rectangle("3", 1)
 
     def test_width_value_error(self):
         """test to see if ValueError is raised"""
@@ -56,6 +58,13 @@ class TriangleTestCases(TestCase):
         """test to see if typeError is raised"""
         with self.assertRaises(TypeError):
             Rectangle(2, 2.5)
+        with self.assertRaises(TypeError):
+            Rectangle(2, "3")
+
+    def test_height_value_error(self):
+        """test to see if valueError is raised"""
+        with self.assertRaises(ValueError):
+            Rectangle(2, 0)
 
     def test_width_type_error(self):
         """test to see if valueError is raised wrong width"""

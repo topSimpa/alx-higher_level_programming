@@ -61,21 +61,25 @@ class SquareTestCases(TestCase):
         """test to see if type error is raised"""
         with self.assertRaises(TypeError):
             Square(2.5)
+        with self.assertRaises(TypeError):
+            Square("3")
 
     def test_width_value_error(self):
         """test to see if ValueError is raised"""
         with self.assertRaises(ValueError):
             Square(-2)
+        with self.assertRaises(ValueError):
+            Square(0)
 
     def test_height_type_error(self):
         """test to see if typeError is raised"""
         with self.assertRaises(TypeError):
-            Rectangle(2, 2.5)
+            Square(2, 2.5)
 
-    def test_width_type_error(self):
+    def test_width_value_error(self):
         """test to see if valueError is raised wrong width"""
         with self.assertRaises(ValueError):
-            Rectangle(1, -2)
+            Square(1, -2)
 
     def test_x_type_error(self):
         """test for type error"""
@@ -85,7 +89,7 @@ class SquareTestCases(TestCase):
     def test_x_value_error(self):
         """test for x value error"""
         with self.assertRaises(ValueError):
-            Rectangle(1, -2)
+            Square(1, -2)
 
     def test_y_type_error(self):
         """test for correct y type"""

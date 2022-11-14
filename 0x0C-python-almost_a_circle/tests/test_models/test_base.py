@@ -65,6 +65,14 @@ class BaseIOTestCases(TestCase):
         Square.save_to_file(empty)
         with open('Square.json', 'r') as file:
             self.assertEqual(file.readline(), json.dumps(empty))
+        Square.save_to_file(None)
+        with open('Square.json', 'r') as file:
+            self.assertEqual(file.readline(), json.dumps(empty))
+
+        # test for saving None rectangle
+        Rectangle.save_to_file(None)
+        with open('Rectangle.json', 'r') as file:
+            self.assertEqual(file.readline(), json.dumps(empty))
 
     def test_from_json_string(self):
         """test to see if json string is converted to dictionary"""
