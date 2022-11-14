@@ -135,12 +135,12 @@ class BaseIOTestCases(TestCase):
         out = [i.to_dictionary() for i in Rectangle.load_from_file_csv()]
         self.assertEqual(r_listdict, out)
 
-        #save and load empty
+        # save and load empty
         Square.save_to_file_csv(None)
         out = Square.load_from_file_csv()
         self.assertEqual([], out)
 
-        #test to handle file not found Rectangle
+        # test to handle file not found Rectangle
         if os.path.isfile('Rectangle.csv'):
             os.remove('Rectangle.csv')
             self.assertEqual(Rectangle.load_from_file_csv(), [])
