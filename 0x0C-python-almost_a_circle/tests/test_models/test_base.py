@@ -74,3 +74,46 @@ class BaseIOTestCases(TestCase):
         self.assertEqual(Base.from_json_string(json.dumps(all_list)), all_list)
         self.assertEqual(Base.from_json_string(json.dumps(empty)), empty)
         self.assertEqual(Base.from_json_string(None), empty)
+
+    def test_create(self):
+        """test to see if an object is created from a dictionary"""
+        s_dict = a.to_dictionary()
+        r_dict = c.to_dictionary()
+        self.assertEqual(Square.create(**s_dict).to_dictionary(), s_dict)
+        self.assertEqual(Rectangle.create(**r_dict).to_dictionary(), r_dict)
+
+    def test_load_from_file(self):
+        """test if objects can be created from json file"""
+        square_list = [a, b]
+        rectangle_list = [c, d]
+        s_listdict = [a.to_dictionary(), b.to_dictionary()]
+        r_listdict = [c.to_dictionary(), d.to_dictionary()]
+        empty = []
+
+        # test for loading from square file
+        Square.save_to_file(square_list)
+        load_square = [i.to_dictionary() for i in Square.load_from_file()]
+        self.assertEqual(s_listdict, load_square)
+
+        # test for loading from rectangle file
+        Rectangle.save_to_file(rectangle_list)
+        load_rect = [i.to_dictionary() for i in Rectangle.load_from_file()]
+        self.assertEqual(r_listdict, load_rect)
+
+        # test for loading from empty list file
+        Square.save_to_file(empty)
+        self.assertEqual(Square.load_from_file(), empty)
+
+        # test to handle file not found square
+        if os.path.isfile('Square.json'):
+            os.remove('Square.json')
+            self.assertEqual(Square.load_from_file(), empty)
+        else:
+            self.assertEqual(Square.load_from_file(), empty)
+
+        # test to handle file not found Rectangle
+        if os.path.isfile('Rectangle.json'):
+            os.remove('Rectangle.json')
+            self.assertEqual(Rectangle.load_from_file(), empty)
+        else:
+            self.assertEqual(Rectangle.load_from_file(), empty)
