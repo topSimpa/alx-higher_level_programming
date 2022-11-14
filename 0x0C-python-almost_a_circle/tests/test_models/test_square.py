@@ -64,7 +64,7 @@ class SquareTestCases(TestCase):
         with self.assertRaises(TypeError):
             Square("3")
 
-    def test_size_value_error(self):
+    def test_size_value_error1(self):
         """test to see if ValueError is raised"""
         with self.assertRaises(ValueError):
             Square(-1)
