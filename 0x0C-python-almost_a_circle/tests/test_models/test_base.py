@@ -66,7 +66,9 @@ class BaseIOTestCases(TestCase):
         with open('Square.json', 'r') as file:
             self.assertEqual(file.readline(), json.dumps(empty))
 
-        #test with none
+    def test_none_saves(self):
+        """None to save"""
+        empty = []
         Square.save_to_file(None)
         with open('Square.json', 'r') as file:
             self.assertEqual(file.readline(), json.dumps(empty))
