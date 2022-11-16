@@ -3,6 +3,7 @@
 
 
 def pascal_triangle(n):
+    """calculate the coefficient of the first nth pascal"""
     coefs = []
     if n <= 0:
         return coefs
