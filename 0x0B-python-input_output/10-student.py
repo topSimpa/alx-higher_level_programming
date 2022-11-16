@@ -11,7 +11,7 @@ class Student:
         self.age = age
 
     def to_json(self, attrs=None):
-        """return the json dict representation of an object"""
+        """return the selected attribute of an object"""
         js = {}
         if type(attrs) == list:
             for i in attrs:
