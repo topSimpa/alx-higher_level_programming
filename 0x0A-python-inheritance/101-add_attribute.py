@@ -7,4 +7,4 @@ def add_attribute(obj, attr, val):
     if '__dict__' in dir(obj):
         setattr(obj, attr, val)
     else:
-        raise(TypeError('cant add new attribute'))
+        raise(TypeError("can't add new attribute"))
